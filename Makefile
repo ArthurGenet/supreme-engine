@@ -8,7 +8,6 @@ main.html:
 dist: main.html
 	mkdir -p ./dist
 	cp ./main.html ./dist/index.html
-	netlify deploy --prod --dir=./main.html
 
 .PHONY: clean
 clean:
