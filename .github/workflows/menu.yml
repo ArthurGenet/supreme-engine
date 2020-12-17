@@ -7,7 +7,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: sudo apt-get update -y && sudo apt-get install -y asciidoctor
+      - run: sudo apt-get install -y linkchecker
       - run: make all
+      - run: make main.html && linkchecker --check-extern ./main.html
       - uses: netlify/actions/cli@master
         with:
           args: deploy --prod --dir=./dist/
