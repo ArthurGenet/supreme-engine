@@ -8,10 +8,12 @@ jobs:
     - uses: actions/checkout@master
     - run:  sudo apt-get install asciidoctor
     - run: asciidoctor ./main.adoc
+    
     - name: Publish
       uses: netlify/actions/cli@master
-      with:
-        args: deploy --dir=site --functions=functions
+      run: export NETLIFY_AUTH_TOKEN=NETLIFY_AUTH_TOKEN
+      run: export NETLIFY_SITE_ID=NETLIFY_SITE_ID
+      run: netlify deploy --prod --dir=../main.html
       env:
         NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
