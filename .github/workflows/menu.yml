@@ -1,17 +1,17 @@
-on: push
-name: Publish on Netlify
+name: Deploy
+on: [push]
 jobs:
-  publish:
+  deploy:
+    name: "Deploy to netlify"
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@master
-
-    - name: Publish
-      uses: netlify/actions/cli@master
-      with:
-        args: deploy --dir=site --prod=../main.html
-      env:
-        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      - uses: actions/checkout@v2
+      - run: sudo apt-get update -y && sudo apt-get install -y asciidoctor
+      - run: make all
+      - uses: netlify/actions/cli@master
+        with:
+          args: deploy --prod --dir=../main.html
+        env:
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
 
