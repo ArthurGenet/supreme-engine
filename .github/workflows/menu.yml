@@ -7,7 +7,7 @@ jobs:
     - uses: actions/checkout@main
     - run: asciidoctor ./main.adoc
     - name: Publish
-      uses: netlify/actions/cli@main
+    - uses: netlify/actions/cli@main
       with:
         args: deploy --dir=site --functions = functions
       env:
