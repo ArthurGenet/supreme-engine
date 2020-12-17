@@ -1,17 +1,18 @@
-name: menu
-on: [push]
+on: push
+name: Publish on Netlify
 jobs:
-  dire_bonjour:
-    runs-on: ubuntu-20.04
+  publish:
+    runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@main
-    - run: asciidoctor ./main.adoc
+    - uses: actions/checkout@master
+
     - name: Publish
-    - uses: netlify/actions/cli@main
+      uses: netlify/actions/cli@master
       with:
-        args: deploy --dir=site --functions = functions
+        args: deploy --dir=site --functions=functions
       env:
-        NETLIFY_SITE_ID: ${{secrets.NETLIFY_SITE_ID}}
-        NETLIFY_AUTH_TOKEN: ${{secrets.NETLIFY_AUTH_TOKEN}}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
 
     
