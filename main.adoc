@@ -4,7 +4,7 @@ Welcome to Los Pollos Hermanos
 
 
 
-image::img.jpg[I am the image alt text.]
+image::../img.jpg[I am the image alt text.]
 
 
 === Plats
