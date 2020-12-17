@@ -13,5 +13,6 @@ image::img.jpg[I am the image alt text.]
 ** Los Pollos Chicken SIZE M
 ** Los Pollos Chicken SIZE L
 ** Los Pollos Chicken SIZE XL
+** Los Pollos Chicken SIZE XXL
 
 https://asciidoctornexistepas.org - automatic!
