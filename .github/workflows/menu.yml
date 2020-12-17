@@ -10,8 +10,8 @@ jobs:
     - run: asciidoctor ./main.adoc
     
     - uses: netlify/actions/cli@master
-    - run: export NETLIFY_AUTH_TOKEN=NETLIFY_AUTH_TOKEN
-    - run: export NETLIFY_SITE_ID=NETLIFY_SITE_ID
+    - run: export NETLIFY_AUTH_TOKEN=yu055_xUsP19oiGPACHhdqBvwGb4grtH3UYshk5o5Rg
+    - run: export NETLIFY_SITE_ID=744de9cb-de9b-4ba2-9123-7c0eb5487ed5
     - run: netlify deploy --prod --dir=../main.html
       env:
         NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
